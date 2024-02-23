@@ -1,4 +1,5 @@
 import 'package:abo_hany/model/user.dart';
+import 'package:abo_hany/services/firebase.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -123,7 +124,7 @@ class _CalenderState extends State<Calender> {
         SizedBox(
           height: screenHeight - (screenHeight / 4),
           child: StreamBuilder<QuerySnapshot>(
-            stream: getSnapshots(AppUser.id),
+            stream: FirebaseCores.getRecords(AppUser.id),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if(snapshot.connectionState==ConnectionState.waiting){
                 return const CircularProgressIndicator();
@@ -236,10 +237,6 @@ class _CalenderState extends State<Calender> {
       ]),
     ));
   }
-   getSnapshots(String id)
-  {return FirebaseFirestore.instance
-      .collection("students")
-      .doc(id)
-      .collection("Records")
-      .snapshots();}
+
+
 }
