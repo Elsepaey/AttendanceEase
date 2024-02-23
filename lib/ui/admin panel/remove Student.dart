@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 import '../../services/utils.dart';
 
@@ -14,11 +13,11 @@ class _RemoveStudentState extends State<RemoveStudent> {
 
   double screenHeight = 0;
 
-  var formkey = GlobalKey<FormState>();
+  var formKey = GlobalKey<FormState>();
 
   Color primary = Colors.indigoAccent;
 
-  Color red = const Color(0xffeef444c);
+  Color grayBlue = Color(0xFF041A45).withOpacity(0.7);
 
   TextEditingController idController = TextEditingController();
 
@@ -28,15 +27,14 @@ class _RemoveStudentState extends State<RemoveStudent> {
     screenWidth = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
       child: Form(
-        key: formkey,
+        key: formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
               height: screenHeight / 15,
             ),
             Card(
-              color: red,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -44,17 +42,16 @@ class _RemoveStudentState extends State<RemoveStudent> {
                   style: TextStyle(
                       fontFamily: 'NexaBold',
                       fontSize: screenWidth / 18,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
               ),
             ),
             SizedBox(
-              height: screenHeight / 35,
+              height: screenHeight / 20,
             ),
             Container(
               padding: EdgeInsets.all(5),
-              margin: EdgeInsets.only(
-                  top: 30, bottom: 20, left: 10, right: 10),
+              margin: EdgeInsets.only(top: 30, bottom: 20, left: 10, right: 10),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -75,7 +72,6 @@ class _RemoveStudentState extends State<RemoveStudent> {
 
                   return null;
                 },
-
                 decoration: InputDecoration(
                   hintText: "enter student Id",
                   contentPadding: EdgeInsets.symmetric(
@@ -86,23 +82,25 @@ class _RemoveStudentState extends State<RemoveStudent> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 25, left: 90, right: 90),
+              margin: const EdgeInsets.only(top: 35, left: 90, right: 90),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(22)),
               ),
               child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(red),
+                    backgroundColor: MaterialStateProperty.all(grayBlue),
                   ),
                   onPressed: () {
                     validate();
-                    showMessage(context, 'student was deleted  successfully', 'OK', (context) {
+                    showMessage(
+                        context, 'student was deleted  successfully', 'OK',
+                        (context) {
                       Navigator.pop(context);
                     });
                     setState(() {
-                      idController.text='';
+                      idController.text = '';
                     });
-                    },
+                  },
                   child: const Text(
                     'Confirm',
                     style: TextStyle(fontSize: 32, color: Colors.white),
@@ -115,11 +113,15 @@ class _RemoveStudentState extends State<RemoveStudent> {
   }
 
   void validate() async {
-    if (formkey.currentState?.validate() == true) {
-     QuerySnapshot snap=await FirebaseFirestore.instance
-          .collection("students").where("id",isEqualTo: idController.text).get();
-     FirebaseFirestore.instance
-         .collection("students").doc(snap.docs[0].id).delete();
+    if (formKey.currentState?.validate() == true) {
+      QuerySnapshot snap = await FirebaseFirestore.instance
+          .collection("students")
+          .where("id", isEqualTo: idController.text)
+          .get();
+      FirebaseFirestore.instance
+          .collection("students")
+          .doc(snap.docs[0].id)
+          .delete();
     }
   }
 }

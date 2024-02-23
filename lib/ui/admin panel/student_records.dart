@@ -23,7 +23,7 @@ class _StudentRecordsState extends State<StudentRecords> {
   Color primary = Colors.indigoAccent;
 
 
-  final String _month = DateFormat('MMMM').format(DateTime.now());
+   String _month = DateFormat('MMMM').format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +105,9 @@ class _StudentRecordsState extends State<StudentRecords> {
                                 );
                               });
                           if (month != null) {
-                            // setState(() {
-                            //   _month = DateFormat('MMMM').format(month);
-                            // });
+                            setState(() {
+                              _month = DateFormat('MMMM').format(month);
+                            });
                           }
                         },
                         child: Text(

@@ -74,7 +74,7 @@ class _TodayState extends State<Today> {
             child: Image(
               width: screenWidth/2.5,height: screenHeight/7,
               image:
-              const AssetImage("assets/images/icons8-welcome-64.png"),
+              const AssetImage("assets/images/welcome-back_5110144.png"),
             fit:BoxFit.fill ,
             ),
           ),

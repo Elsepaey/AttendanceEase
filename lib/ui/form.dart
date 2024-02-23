@@ -99,6 +99,7 @@ class _MyFormState extends State<MyForm> {
         : Container(
 
       margin: EdgeInsets.all(screenHeight/50),
+          padding: EdgeInsets.all(7),
           decoration: const BoxDecoration(
              // borderRadius: BorderRadius.all(Radius.circular(10),),
               boxShadow: [
@@ -222,9 +223,9 @@ class _MyFormState extends State<MyForm> {
             child: Text(
               label
               ,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               style: const TextStyle(
-                color: Colors.red,
+                color: Colors.black,
                 fontSize: 22,
                 fontWeight: FontWeight.bold
 
@@ -243,7 +244,7 @@ class _MyFormState extends State<MyForm> {
               textAlign: TextAlign.center,
 
               style: const TextStyle(
-                color: Colors.red,
+                color: Colors.white,
                 fontSize: 22,
 fontWeight: FontWeight.bold
               ),

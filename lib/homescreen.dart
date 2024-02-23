@@ -3,7 +3,6 @@ import 'package:abo_hany/services/location_service.dart';
 import 'package:abo_hany/ui/CalenderScreen.dart';
 import 'package:abo_hany/ui/ProfileScreen.dart';
 import 'package:abo_hany/ui/TodayScreen.dart';
-import 'package:abo_hany/ui/admin%20panel/student_records.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,14 +17,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double screenWidth = 0;
+  double screenHeight = 0;
   String id="";
   int currentIndex = 0;
   Color primary = Colors.indigoAccent;
-  List<IconData> navBarItems = [
-    FontAwesomeIcons.check,
-    FontAwesomeIcons.calendarDays,
+  List navBarItems = [
+    AssetImage("assets/icons/check.png"),
+    AssetImage("assets/icons/img_5.png"),
+    AssetImage("assets/icons/img_4.png"),
 
-    FontAwesomeIcons.user,
   ];
   List<String> navbarTitles = [ "Today","Calender", "Profile"];
 
@@ -84,6 +85,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
@@ -109,7 +112,8 @@ class _HomeState extends State<Home> {
                           currentIndex = i;
                         });
                       },
-                      child: Icon(navBarItems[i],
+                      child: ImageIcon(navBarItems[i],
+                          size:screenWidth/11 ,
                           color:
                               i == currentIndex ? Colors.white : Colors.black)))
             }

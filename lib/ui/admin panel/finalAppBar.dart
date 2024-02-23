@@ -10,13 +10,11 @@ class AdminAppBar extends StatelessWidget implements  PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      toolbarHeight: 120,
+      toolbarHeight: 80,
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           color: Colors.indigo,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(160),
-          ),
+
         ),
         child: Center(
           child: Text(
@@ -43,6 +41,6 @@ class AdminAppBar extends StatelessWidget implements  PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(screenHeight/7);
+  Size get preferredSize =>  Size.fromHeight(screenHeight/12);
 
 }

@@ -73,7 +73,7 @@ class _AuthCheckState extends State<AuthCheck> {
 
     return AnimatedSplashScreen(
         splashIconSize: Width / 2,
-        duration: 800,
+        duration: 1500,
         splash: Image(
           image: const AssetImage(
             "assets/icons/undraw_Check_boxes_re_v40f.png",

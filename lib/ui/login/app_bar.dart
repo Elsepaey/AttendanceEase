@@ -8,14 +8,14 @@ class Appbar {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return
-      PreferredSize(preferredSize: Size.fromHeight(screenHeight/3), child:
+      PreferredSize(preferredSize: Size.fromHeight(screenHeight/4.5), child:
       Container(
-        height:screenHeight/3,
+        height:screenHeight/4.5,
         decoration:  BoxDecoration(
           color: Colors.indigoAccent,
           borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(screenWidth/2),
-            bottomLeft: Radius.circular(screenWidth/2),
+            bottomRight: Radius.circular(screenWidth/4),
+            bottomLeft: Radius.circular(screenWidth/4),
           ),
         ),
         child:  Row(

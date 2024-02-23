@@ -29,7 +29,7 @@ class ShowStudents extends StatelessWidget {
     return
 
       Container(
-        padding: const EdgeInsets.symmetric(vertical: 70,horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 110,horizontal: 12),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, crossAxisSpacing: 22, mainAxisSpacing: 22),

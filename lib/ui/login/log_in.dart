@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: screenHeight/15,),
+              SizedBox(height: screenHeight/8,),
               decoratedContainer(
                 TextFormField(
                   validator: (text) {

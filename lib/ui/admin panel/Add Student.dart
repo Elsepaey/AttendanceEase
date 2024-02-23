@@ -19,7 +19,8 @@ class _AddStudentState extends State<AddStudent> {
   bool securedPass = true;
 
   Color primary = Colors.indigoAccent;
-  Color red = const Color(0xffeef444c);
+  Color grayblue = Color(0xFF041A45).withOpacity(0.7)
+  ;
   TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -30,13 +31,12 @@ class _AddStudentState extends State<AddStudent> {
       child: Form(
         key: formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
               height: screenHeight / 15,
             ),
             Card(
-              color: red,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -44,7 +44,7 @@ class _AddStudentState extends State<AddStudent> {
                   style: TextStyle(
                       fontFamily: 'NexaBold',
                       fontSize: screenWidth / 18,
-                      color: Colors.white),
+                      color: Colors.black),
                 ),
               ),
             ),
@@ -107,7 +107,8 @@ class _AddStudentState extends State<AddStudent> {
               ),
               child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(red),
+                    backgroundColor: MaterialStateProperty.all(           grayblue,
+                    ),
                   ),
                   onPressed: () {
                     validate();

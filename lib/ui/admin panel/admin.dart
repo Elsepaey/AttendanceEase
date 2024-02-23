@@ -4,7 +4,6 @@ import 'package:abo_hany/ui/admin%20panel/remove%20Student.dart';
 import 'package:abo_hany/ui/admin%20panel/show%20Students.dart';
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class adminPage extends StatefulWidget {
   static String Route_Name = "adminScreen";
@@ -23,10 +22,11 @@ class _adminPageState extends State<adminPage> {
   Color primary = Colors.indigoAccent;
   Color red = const Color(0xffeef444c);
   List navBarTitles = ["Add Student", "Remove Student", "All Students"];
-  List<IconData> navBarItems = [
-    Icons.person_add,
-    Icons.person_remove,
-    FontAwesomeIcons.users,
+  List navBarItems = [
+AssetImage("assets/icons/img.png"),
+    AssetImage("assets/icons/img_1.png"),
+    AssetImage("assets/icons/img_3.png"),
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,10 @@ class _adminPageState extends State<adminPage> {
     return Scaffold(
       appBar: AdminAppBar(screenHeight),
       bottomNavigationBar: ClipRRect(
+
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
+          topLeft: Radius.circular(20.0),
+          topRight: Radius.circular(20.0),
         ),
         child:
         BottomNavigationBar(
@@ -58,9 +59,9 @@ class _adminPageState extends State<adminPage> {
                           currentIndex = i;
                         });
                       },
-                      child: Icon(navBarItems[i],
+                      child: ImageIcon(navBarItems[i],
                           color:
-                          i == currentIndex ? Colors.white : Colors.black)))
+                          i == currentIndex ? Colors.white : Colors.black,size: screenWidth/11,)))
             }
           ],
         ),
