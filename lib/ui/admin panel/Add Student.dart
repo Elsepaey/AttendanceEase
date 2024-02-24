@@ -112,7 +112,7 @@ class _AddStudentState extends State<AddStudent> {
                   ),
                   onPressed: () {
                     validate();
-                    showMessage(context, 'Todo was added successfully', 'OK', (context) {
+                    showMessage(context, 'student was added successfully', 'OK', (context) {
                       Navigator.pop(context);
                     });
                     setState(() {
